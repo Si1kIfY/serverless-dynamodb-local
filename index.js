@@ -184,7 +184,7 @@ class ServerlessDynamodbLocal {
         
         return new BbPromise(function(resolve, reject) {
             let dynamodb = self.dynamodbOptions(region),
-                tableOptions = self.tableOptions();
+                tableOptions = self.tableOptions(options.stage);
 	        dynamodbMigrations.init(dynamodb, tableOptions.path);
             dynamodbMigrations.executeAll(tableOptions).then(resolve, reject);
         });
